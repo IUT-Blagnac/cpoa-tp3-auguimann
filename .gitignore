@@ -1,0 +1,10 @@
+.settings
+.vscode
+.classpath
+.project
+target
+.gradle
+build
+gradle/
+solution
+README.html
