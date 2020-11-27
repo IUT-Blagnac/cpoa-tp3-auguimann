@@ -17,6 +17,7 @@ class PizzaCustomStyleBrest
 class PizzaCustomStyleStrasbourg
 class PizzaTestDrive
 ' end package
+''
 
 Pizza  <|-- "PizzaFromageStyleBrest"
 Pizza  <|-- "PizzaFromageStyleStrasbourg"
