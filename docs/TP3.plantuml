@@ -1,14 +1,14 @@
 @startuml
 
 ' package ""
-abstract Pizza
-abstract Pizzeria
-abstract PizzaFactory
+abstract class Pizza
+abstract class Pizzeria
+abstract class PizzaFactory
 class PizzeriaBrest
 class PizzeriaStrasbourg
-class PizzeriaFactory
-class PizzeriaFactoryBrest
-class PizzeriaFactoryStrasbourg
+class Factory
+class FactoryBrest
+class FactoryStrasbourg
 class PizzaFromageStyleBrest
 class PizzaFromageStyleStrasbourg
 class PizzaSavoyardeStyleBrest
@@ -18,22 +18,22 @@ class PizzaCustomStyleStrasbourg
 class PizzaTestDrive
 ' end package
 
-Pizza  <|-- "PizzaFromageStyleBrest" 
+Pizza  <|-- "PizzaFromageStyleBrest"
 Pizza  <|-- "PizzaFromageStyleStrasbourg"
-Pizza  <|-- "PizzaSavoyardeStyleBrest" 
+Pizza  <|-- "PizzaSavoyardeStyleBrest"
 Pizza  <|-- "PizzaSavoyardeStyleStrasbourg"
-Pizza  <|-- "PizzaCustomStyleBrest" 
+Pizza  <|-- "PizzaCustomStyleBrest"
 Pizza  <|-- "PizzaCustomStyleStrasbourg"
-Pizzeria --> PizzaFactory 
+Pizzeria --> PizzaFactory
 Pizzeria ..> Pizza
 Pizzeria <|-- PizzeriaBrest
 Pizzeria <|-- PizzeriaStrasbourg
-Pizzeria <.. PizzeriaFactory 
+Pizzeria <.. Factory
 PizzaTestDrive ..> Pizza
-PizzaTestDrive ..> PizzeriaFactory  
+PizzaTestDrive ..> Factory
 PizzaFactory ..> Pizza
-PizzaFactory <|-- PizzeriaFactoryBrest
-PizzaFactory <|-- PizzeriaFactoryStrasbourg
+PizzaFactory <|-- FactoryBrest
+PizzaFactory <|-- FactoryStrasbourg
 ' content
 ' -------
 
@@ -70,11 +70,11 @@ PizzaCustomStyleBrest : +PizzaCustomStyleBrest()
 'PizzaTestDrive:
 PizzaTestDrive : +void main(String[] args)
 
-'PizzeriaFactory:
-PizzeriaFactory : ~PizzeriaFactory uniqueInstance
-PizzeriaFactory : -PizzeriaFactory()
-PizzeriaFactory : +PizzeriaFactory getInstance()
-PizzeriaFactory : +Pizzeria create(String name)
+'Factory:
+Factory : ~Factory uniqueInstance
+Factory : -Factory()
+Factory : +Factory getInstance()
+Factory : +Pizzeria create(String name)
 
 'Pizzeria:
 Pizzeria : +Pizza orderPizza(String type)
@@ -90,16 +90,16 @@ PizzeriaStrasbourg : +PizzeriaStrasbourg()
 'PizzeriaBrest:
 PizzeriaBrest : PizzeriaBrest()
 
-'PizzeriaFactoryStrasbourg:
-PizzeriaFactoryStrasbourg : ~PizzeriaFactoryStrasbourg uniqueInstance
-PizzeriaFactoryStrasbourg : -PizzeriaFactoryStrasbourg()
-PizzeriaFactoryStrasbourg : +PizzeriaFactoryStrasbourg getInstance()
-PizzeriaFactoryStrasbourg : +Pizza create(String name)
+'FactoryStrasbourg:
+FactoryStrasbourg : ~FactoryStrasbourg uniqueInstance
+FactoryStrasbourg : -FactoryStrasbourg()
+FactoryStrasbourg : +FactoryStrasbourg getInstance()
+FactoryStrasbourg : +Pizza create(String name)
 
-'PizzeriaFactoryBrest:
-PizzeriaFactoryBrest : ~PizzeriaFactoryBrest uniqueInstance
-PizzeriaFactoryBrest : -PizzeriaFactoryBrest()
-PizzeriaFactoryBrest : +PizzeriaFactoryBrest getInstance()
-PizzeriaFactoryBrest : +Pizza create(String name)
+'FactoryBrest:
+FactoryBrest : ~FactoryBrest uniqueInstance
+FactoryBrest : -FactoryBrest()
+FactoryBrest : +FactoryBrest getInstance()
+FactoryBrest : +Pizza create(String name)
 
 @enduml
