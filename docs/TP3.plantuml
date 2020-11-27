@@ -29,7 +29,7 @@ Pizzeria --> PizzaFactory
 Pizzeria ..> Pizza
 Pizzeria <|-- PizzeriaBrest
 Pizzeria <|-- PizzeriaStrasbourg
-Pizzeria <.. Factory
+Pizzeria <--> "1" Factory 
 PizzaTestDrive ..> Pizza
 PizzaTestDrive ..> Factory
 PizzaFactory ..> Pizza
